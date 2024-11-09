@@ -1,0 +1,226 @@
+{
+    "AL": {
+        "state_id": 1,
+        "state_name": "Alabama"
+    },
+    "AK": {
+        "state_id": 2,
+        "state_name": "Alaska"
+    },
+    "AZ": {
+        "state_id": 4,
+        "state_name": "Arizona"
+    },
+    "AR": {
+        "state_id": 5,
+        "state_name": "Arkansas"
+    },
+    "CA": {
+        "state_id": 6,
+        "state_name": "California"
+    },
+    "CO": {
+        "state_id": 8,
+        "state_name": "Colorado"
+    },
+    "CT": {
+        "state_id": 9,
+        "state_name": "Connecticut"
+    },
+    "DE": {
+        "state_id": 10,
+        "state_name": "Delaware"
+    },
+    "DC": {
+        "state_id": 11,
+        "state_name": "District of Columbia"
+    },
+    "FL": {
+        "state_id": 12,
+        "state_name": "Florida"
+    },
+    "GA": {
+        "state_id": 13,
+        "state_name": "Georgia"
+    },
+    "HI": {
+        "state_id": 15,
+        "state_name": "Hawaii"
+    },
+    "ID": {
+        "state_id": 16,
+        "state_name": "Idaho"
+    },
+    "IL": {
+        "state_id": 17,
+        "state_name": "Illinois"
+    },
+    "IN": {
+        "state_id": 18,
+        "state_name": "Indiana"
+    },
+    "IA": {
+        "state_id": 19,
+        "state_name": "Iowa"
+    },
+    "KS": {
+        "state_id": 20,
+        "state_name": "Kansas"
+    },
+    "KY": {
+        "state_id": 21,
+        "state_name": "Kentucky"
+    },
+    "LA": {
+        "state_id": 22,
+        "state_name": "Louisiana"
+    },
+    "ME": {
+        "state_id": 23,
+        "state_name": "Maine"
+    },
+    "MD": {
+        "state_id": 24,
+        "state_name": "Maryland"
+    },
+    "MA": {
+        "state_id": 25,
+        "state_name": "Massachusetts"
+    },
+    "MI": {
+        "state_id": 26,
+        "state_name": "Michigan"
+    },
+    "MN": {
+        "state_id": 27,
+        "state_name": "Minnesota"
+    },
+    "MS": {
+        "state_id": 28,
+        "state_name": "Mississippi"
+    },
+    "MO": {
+        "state_id": 29,
+        "state_name": "Missouri"
+    },
+    "MT": {
+        "state_id": 30,
+        "state_name": "Montana"
+    },
+    "NE": {
+        "state_id": 31,
+        "state_name": "Nebraska"
+    },
+    "NV": {
+        "state_id": 32,
+        "state_name": "Nevada"
+    },
+    "NH": {
+        "state_id": 33,
+        "state_name": "New Hampshire"
+    },
+    "NJ": {
+        "state_id": 34,
+        "state_name": "New Jersey"
+    },
+    "NM": {
+        "state_id": 35,
+        "state_name": "New Mexico"
+    },
+    "NY": {
+        "state_id": 36,
+        "state_name": "New York"
+    },
+    "NC": {
+        "state_id": 37,
+        "state_name": "North Carolina"
+    },
+    "ND": {
+        "state_id": 38,
+        "state_name": "North Dakota"
+    },
+    "OH": {
+        "state_id": 39,
+        "state_name": "Ohio"
+    },
+    "OK": {
+        "state_id": 40,
+        "state_name": "Oklahoma"
+    },
+    "OR": {
+        "state_id": 41,
+        "state_name": "Oregon"
+    },
+    "PA": {
+        "state_id": 42,
+        "state_name": "Pennsylvania"
+    },
+    "RI": {
+        "state_id": 44,
+        "state_name": "Rhode Island"
+    },
+    "SC": {
+        "state_id": 45,
+        "state_name": "South Carolina"
+    },
+    "SD": {
+        "state_id": 46,
+        "state_name": "South Dakota"
+    },
+    "TN": {
+        "state_id": 47,
+        "state_name": "Tennessee"
+    },
+    "TX": {
+        "state_id": 48,
+        "state_name": "Texas"
+    },
+    "UT": {
+        "state_id": 49,
+        "state_name": "Utah"
+    },
+    "VT": {
+        "state_id": 50,
+        "state_name": "Vermont"
+    },
+    "VA": {
+        "state_id": 51,
+        "state_name": "Virginia"
+    },
+    "WA": {
+        "state_id": 53,
+        "state_name": "Washington"
+    },
+    "WV": {
+        "state_id": 54,
+        "state_name": "West Virginia"
+    },
+    "WI": {
+        "state_id": 55,
+        "state_name": "Wisconsin"
+    },
+    "WY": {
+        "state_id": 56,
+        "state_name": "Wyoming"
+    },
+    "AS": {
+        "state_id": 60,
+        "state_name": "American Samoa"
+    },
+    "GU": {
+        "state_id": 66,
+        "state_name": "Guam"
+    },
+    "MP": {
+        "state_id": 69,
+        "state_name": "Northern Mariana Islands"
+    },
+    "PR": {
+        "state_id": 72,
+        "state_name": "Puerto Rico"
+    },
+    "VI": {
+        "state_id": 78,
+        "state_name": "U.S. Virgin Islands"
+    }
+}
