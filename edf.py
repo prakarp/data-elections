@@ -34,7 +34,8 @@ class ElectionDataFrame(pd.DataFrame):
             'candidatevotes': 'sum',
             'totalvotes': 'sum',
             'party': 'first',
-            'state_po': 'first'
+            'state_po': 'first',
+            'county_fips': 'first'
         }).pipe(ElectionDataFrame)
 
     def filter_data(self, years=None, parties=None):
@@ -60,7 +61,7 @@ class ElectionDataFrame(pd.DataFrame):
     
     def combine_votes_per_county(self):
         """Combine votes for each candidate per county and year."""
-        return self.pivot_table(index=['year', 'state', 'county_name'], columns=['party'],
+        return self.pivot_table(index=['year', 'state', 'state_po', 'county_name', 'county_fips'], columns=['party'],
                         values=['candidatevotes', 'totalvotes', 'percentage']).reset_index().pipe(ElectionDataFrame)
 
     
@@ -81,7 +82,10 @@ class ElectionDataFrame(pd.DataFrame):
     
         # Assuming self.data holds the DataFrame
         result = self.filter_data(years=None, parties=['REPUBLICAN', 'DEMOCRAT'])
-        result = result.add_percentage().combine_votes_per_county()
+        # print (result)
+        result = result.add_percentage()
+        # print(result)
+        result = result.combine_votes_per_county()
         result['winner'] = result.apply(
             lambda x: 'REPUBLICAN' if x['candidatevotes']['REPUBLICAN'] > x['candidatevotes']['DEMOCRAT'] else 'DEMOCRAT', 
             axis=1)
@@ -138,6 +142,39 @@ class ElectionDataFrame(pd.DataFrame):
         return swing_elections
         # print("Swing states:", swing_states)'state',
 
+    
+    def find_swing_counties_df(self):
+        # Define conditions for each year and winner
+        condition_2012 = (self['year'] == 2012) & (self['winner'] == 'DEMOCRAT')
+        condition_2016 = (self['year'] == 2016) & (self['winner'] == 'REPUBLICAN')
+        condition_2020 = (self['year'] == 2020) & (self['winner'] == 'DEMOCRAT')
+
+        # Filter data to find counties meeting each condition
+        elections_2012 = self[condition_2012]
+        elections_2016 = self[condition_2016]
+        elections_2020 = self[condition_2020]
+
+        # Find swing counties that are in all three filtered datasets
+        swing_county_keys = set(elections_2012['county_fips']) & \
+                            set(elections_2016['county_fips']) & \
+                            set(elections_2020['county_fips'])
+        print("Swing county keys:", swing_county_keys)
+        swing_df = self[(self['county_fips'].isin(swing_county_keys) & (self['year'] == 2020))]  
+        print("Swing DF:\n", swing_df)
+        # Get unique county information for swing counties (consistent columns)
+        county_info = swing_df[['state', 'state_po', 'county_fips', 'county_name']]
+        print("County info:\n", county_info)
+        # Merge the county information with the election results for each year
+        result_df = county_info.merge(
+            swing_df[['county_fips']],
+            on='county_fips',
+            how='left'
+        )
+        
+        return swing_df.reset_index().pipe(ElectionDataFrame)
+
+# Define a custom DataFrame subclass for custom methods
+
 # Load and prepare the data
 file_name = 'countypres_2000-2020.csv'
 df = pd.read_csv(file_name, dtype={'year': int, 'county_fips': str, 'party': str, 'mode': str, 'candidate': str, 'state': str, 'state_po': str})
@@ -186,12 +223,15 @@ result.to_csv('states_2020_result.csv', index=False)
 # 2020 ALABAMA   DONALD J TRUMP            1441170     2323282   REPUBLICAN       AL       62.03
 #               JOSEPH R BIDEN JR          849624     2323282     DEMOCRAT       AL       36.57
 
-print("Swing states:", result.find_swing_states())
+# print("Swing states:", result.find_swing_states())
 
 result = df.calculate_winner_county()
-print(result)
+# print(result)
 result = result.flatten_pivoted_table()
 print(result)
-swing_counties = result.find_swing_counties()
-print("Swing counties:", swing_counties)
+# swing_counties = result.find_swing_counties()
+# print("Swing counties:", swing_counties)
 
+# print(result)
+swing_counties_df = result.find_swing_counties_df()
+print(swing_counties_df)
