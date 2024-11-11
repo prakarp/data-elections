@@ -1,5 +1,5 @@
 # data-elections
-Data analytics code with election data 
+Data analytics code with election data. All code is experimental and educational. 
 
 #  Pandas Experiment
 
